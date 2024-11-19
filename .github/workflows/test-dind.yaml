@@ -30,7 +30,8 @@ jobs:
         with:
           python-version: 3.11
 
-      # Test pytorch rocm
+      # Test docker
       - name: "Test docker"
         run: |
           docker info
+          docker run hello-world
