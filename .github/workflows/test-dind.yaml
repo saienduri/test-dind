@@ -35,3 +35,4 @@ jobs:
         run: |
           docker info
           docker run hello-world
+          docker_root_dir=$(docker info -f '{{.DockerRootDir}}')
