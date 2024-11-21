@@ -36,6 +36,5 @@ jobs:
           docker info
           docker run hello-world
           docker_root_dir=$(docker info -f '{{.DockerRootDir}}')
-          systemctl status docker
-          diskspace=$(df -H --output=pcent ${docker_root_dir} | sed -n 2p | sed 's/%//' | sed 's/ //')
+          diskspace=$(sudo df -H --output=pcent ${docker_root_dir} | sed -n 2p | sed 's/%//' | sed 's/ //')
           echo $diskspace
