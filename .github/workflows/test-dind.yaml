@@ -36,9 +36,5 @@ jobs:
           docker info
           docker run hello-world
           docker_root_dir=$(docker info -f '{{.DockerRootDir}}')
-          if [ ! -d "$docker_root_dir" ]; then
-              echo "Docker root directory ($docker_root_dir) does not exist. Skipping disk space check."
-              exit 0
-          fi
           diskspace=$(df -H --output=pcent ${docker_root_dir} | sed -n 2p | sed 's/%//' | sed 's/ //')
           echo $diskspace
