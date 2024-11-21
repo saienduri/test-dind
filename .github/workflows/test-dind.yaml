@@ -37,4 +37,6 @@ jobs:
           docker run hello-world
           docker_root_dir=$(docker info -f '{{.DockerRootDir}}')
           diskspace=$(sudo df -H --output=pcent ${docker_root_dir} | sed -n 2p | sed 's/%//' | sed 's/ //')
+          cd /var/lib
+          ls
           echo $diskspace
