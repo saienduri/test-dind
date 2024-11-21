@@ -40,3 +40,10 @@ jobs:
           cd /var/lib
           ls
           echo $diskspace
+
+      - name: Runner health check disconnect on failure
+        if: ${{ failure() }}
+        shell: bash
+        run: |
+          ls
+          killall runsvc.sh
